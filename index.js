@@ -3,26 +3,25 @@ const app = express()
 
 const mongoose  = require('mongoose');
 
-const user  = require('./schema');
 
+const router = require('./routes');
 
+// registering the dotenv content
 require('dotenv').config()
 
 // Connecting to mongodb
-mongoose.connect('mongodb://localhost/users');
+mongoose.connect('mongodb://localhost/zumas');
 
 
 app.use(express.json())
+
+// registering the port
 const port = process.env.PORT 
 
+// registering the api router
+app.use('/api',router);
 
-app.post('/',(req,res)=>{
-    user.create(req.body)
-    .then(res=> console.log(res))
-    .catch(err=> console.log(err))
 
-  
-})
 
 app.listen(port,()=>{
     console.log(`Server connected successfully on port ${port}`)

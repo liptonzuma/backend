@@ -1,9 +1,12 @@
-POST  http://localhost:5000
+POST  http://localhost:5000/api/
 Content-Type: application/json
 
 {
-    "username":"Lipton",
-    "age":20,
-    "email":"l@test.com",
+    "username":"Solomon",
+    "email":"S@s.com",
+    "age":40,
     "available":true
 }
+
+
+

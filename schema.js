@@ -6,15 +6,15 @@ const user_schema = new schema(
   {
       username:{
           type:String,
-          require:true
+          required:true
       },
       email :{
           type:String,
-          require:true
+          required:true
       },
       age : {
           type:String,
-          require:true,
+          required:true,
       },
       available :{
           type:Boolean,
