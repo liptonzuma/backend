@@ -1,28 +1,27 @@
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser') 
+
+const mongoose  = require('mongoose');
+
+const user  = require('./schema');
+
+
 require('dotenv').config()
 
-app.use(bodyParser());
-app.use(express.json())
-const port = process.env.PORT || 5000
+// Connecting to mongodb
+mongoose.connect('mongodb://localhost/users');
 
-const users =  []
+
+app.use(express.json())
+const port = process.env.PORT 
+
 
 app.post('/',(req,res)=>{
+    user.create(req.body)
+    .then(res=> console.log(res))
+    .catch(err=> console.log(err))
 
-   const username = req.body.username;
-   const age = req.body.age;
-   const email = req.body.email;
-
-   const user = {
-       username,
-       age,
-       email,
-   }
-
-   users.push(user);
-   console.log(users);
+  
 })
 
 app.listen(port,()=>{

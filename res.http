@@ -2,7 +2,8 @@ POST  http://localhost:5000
 Content-Type: application/json
 
 {
-    "username":"Zuma",
-    "age":19,
-    "email":"z@z.com"
+    "username":"Lipton",
+    "age":20,
+    "email":"l@test.com",
+    "available":true
 }
