@@ -3,7 +3,6 @@ const app = express()
 
 const mongoose  = require('mongoose');
 
-
 const router = require('./routes');
 
 // registering the dotenv content
@@ -20,7 +19,6 @@ const port = process.env.PORT
 
 // registering the api router
 app.use('/api',router);
-
 
 
 app.listen(port,()=>{
