@@ -12,6 +12,10 @@ const user_schema = new schema(
           type:String,
           required:true
       },
+      password:{
+          type:String,
+          required:true
+      },
       age : {
           type:String,
           required:true,

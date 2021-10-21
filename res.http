@@ -1,8 +1,11 @@
-PUT  http://localhost:5000/api/6170c25980688167be952fb9
+POST   http://localhost:5000/api/login
 Content-Type: application/json
 
 {
-    "username":"LiptonZuma"
+    "username":"Lipton",
+    "email":"l@l.com",
+    "password":1234,
+    "age":20
 }
 
 
