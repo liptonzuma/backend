@@ -12,7 +12,7 @@ const auth = require('./authRouth')
 require('dotenv').config()
 
 // Connecting to mongodb
-mongoose.connect('mongodb://localhost/zumas');
+mongoose.connect('mongodb://localhost/api');
 
 app.use(session({secret:'secret'}))
 

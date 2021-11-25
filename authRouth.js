@@ -15,4 +15,6 @@ authRouther.get('/home',(req,res)=>{
     }
 })
 
+
+
 module.exports = authRouther
