@@ -25,19 +25,6 @@ router.put('/:id',(req,res)=>{
     })
 })
 
-router.post('/',(req,res)=>{
-    // using the user model to create new user in the mongodb database
-    user.create(req.body)
 
-    .then(data=> {
-        res.send(data)
-        console.log(data)
-    })
-    .catch(err=> {
-        res.sendStatus(406,err.message)
-        console.log(err.message)
-    })
-  
-})
 
 module.exports = router;

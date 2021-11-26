@@ -17,10 +17,23 @@ authRouther.get('/home',(req,res)=>{
     }
 })
 
-authRouther.post('/register',(req,res)=>{
-    user.create(req.body).
-    then(data=>res.send(data))
+authRouther.get('/login',(req,res)=>{
+    res.send('You\'re in the login page')
+})
 
+authRouther.post('/register',(req,res)=>{
+    // using the user model to create new user in the mongodb database
+    user.create(req.body)
+
+    .then(data=> {
+        res.redirect('/login')
+
+    })
+    .catch(err=> {
+        res.sendStatus(406,err.message)
+        console.log(err.message)
+    })
+  
 })
 
 module.exports = authRouther

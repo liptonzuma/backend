@@ -1,5 +1,5 @@
 const passport = require('passport')
-const LocalStrategy = require('passport-local')
+const LocalStrategy = require('passport-local').Strategy
 
 const User = require('../schema')
 
@@ -23,6 +23,7 @@ passport.use(new LocalStrategy(
     //  and the second parameter is the user
     async (username,password,done)=>{
        const result = await User.findOne({username:username})
+       
       if(!result){
           done(null,false)
       }
