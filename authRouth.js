@@ -7,9 +7,11 @@ const user = require('./schema')
 const bcrypt = require('bcrypt')
 
 
-authRouther.post('/login',passport.authenticate('local'),(req,res)=>{
-    console.log('Logged in')
-    res.send(req.user)
+authRouther.post('/login',(req,res)=>{
+    user.find({username:req.body.username})
+    .then((data)=>{
+        res.send(data)
+    })
 })
 authRouther.get('/home',(req,res)=>{
     if(req.user){
