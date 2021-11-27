@@ -4,6 +4,8 @@ const passport = require('passport')
 
 const user = require('./schema')
 
+const bcrypt = require('bcrypt')
+
 
 authRouther.post('/login',passport.authenticate('local'),(req,res)=>{
     console.log('Logged in')
@@ -23,7 +25,17 @@ authRouther.get('/login',(req,res)=>{
 
 authRouther.post('/register',(req,res)=>{
     // using the user model to create new user in the mongodb database
-    user.create(req.body)
+    let password = req.body.password;
+
+    bcrypt.hash(password,10).then( (hash)=> {
+        user.create({
+        username:req.body.username,
+        email:req.body.email,
+        password:hash,
+        age:req.body.age
+
+    })
+    })
 
     .then(data=> {
         res.redirect('/login')
