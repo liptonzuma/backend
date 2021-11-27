@@ -10,7 +10,8 @@ const bcrypt = require('bcrypt')
 authRouther.post('/login',(req,res)=>{
     user.find({username:req.body.username})
     .then((data)=>{
-        res.send(data)
+        const result = data.find(e=> bcrypt.compare(req.body.password,e.password))
+        res.send(result)
     })
 })
 authRouther.get('/home',(req,res)=>{
