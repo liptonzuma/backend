@@ -41,7 +41,7 @@ authRouther.post('/register',(req,res)=>{
     })
 
     .then(data=> {
-        res.redirect('/login')
+        res.send(data)
 
     })
     .catch(err=> {
